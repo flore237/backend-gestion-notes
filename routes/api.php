@@ -1,0 +1,29 @@
+<?php
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClasseController;
+use App\Http\Controllers\EtudiantController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::get('classes', [ClasseController::class, 'index']);
+// Route::get('products/{id}', [ProductController::class, 'show']);
+Route::post('classes', [ClasseController::class, 'store']);
+
+Route::get('etudiant', [EtudiantController::class, 'index']);
+// Route::get('products/{id}', [ProductController::class, 'show']);
+Route::post('etudiant', [EtudiantController::class, 'store']);
